@@ -12,8 +12,8 @@ class GamesController < ApplicationController
     end
 
     def create
-        @platform = Platform.find(params[:platform_id])
-        @game = @platform.games.bulid(game_params)
+        @platform = Platform.find(params[:game][:platform_id])
+        @game = @platform.games.create(game_params)
 
         if @game.save
             redirect_to games_path
@@ -27,7 +27,8 @@ class GamesController < ApplicationController
     end
 
     def update
-        @game = Game.find(params[:id])
+        @platform = Platform.find(params[:game][:platform_id])
+        @game = @platform.games.create(game_params)
 
         if @game.update(game_params)
             redirect_to games_path

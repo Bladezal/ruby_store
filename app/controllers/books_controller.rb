@@ -12,10 +12,11 @@ class BooksController < ApplicationController
     end
 
     def create
-        @book = Book.new(book_params)
+        @category = Category.find(params[:book][:category])
+        @book = @category.books.create(book_params)
 
         if @book.save
-            redirect_to @book
+            redirect_to books_path
         else
             render :new
         end
@@ -26,10 +27,11 @@ class BooksController < ApplicationController
     end
 
     def update
-        @book = Book.find(params[:id])
+        @category = Category.find(params[:book][:category])
+        @book = @category.books.create(book_params)
 
         if @book.update(book_params)
-            redirect_to @book
+            redirect_to books_path
         else
             render :new
         end

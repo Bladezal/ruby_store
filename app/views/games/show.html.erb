@@ -1,0 +1,17 @@
+
+<h1>Game Details</h1>
+
+<%= label_tag :name %>:
+<p><%= @game.name %></p>
+
+<%= label_tag :price %>:
+<p><%= @game.price %></p>
+
+<%= label_tag :platform%>:
+<p><%= @game.platform.name %></p>
+
+<%= label_tag :description %>:<br>
+<p><%= @game.description %></p>
+
+<%= button_to 'Modify', edit_game_path(@game.id), method: :get %>
+<%= button_to 'Back', games_path, method: :get %>

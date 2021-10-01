@@ -1,0 +1,23 @@
+
+<h1>Book Details</h1>
+
+<%= label_tag :name %>:
+<p><%= @book.name %></p>
+
+<%= label_tag :price %>:
+<p><%= @book.price %></p>
+
+<%= label_tag :category%>:
+<p><%= @book.category.name %></p>
+
+<%= label_tag :author %>:
+<p><%= @book.author %></p>
+
+<%= label_tag :editor %>:
+<p><%= @book.editor %></p>
+
+<%= label_tag :description %>:<br>
+<p><%= @book.description %></p>
+
+<%= button_to 'Modify', edit_book_path(@book.id), method: :get %>
+<%= button_to 'Back', books_path, method: :get %>
