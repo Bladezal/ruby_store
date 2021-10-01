@@ -1,0 +1,15 @@
+<%= form_with model: @platform do |form| %>
+    <div>
+      <%= form.label :name %><br>
+      <%= form.text_field :name %>
+      <% @platform.errors.full_messages_for(:name).each do |message| %>
+        <div><%= message %></div>
+      <% end %>
+    </div>
+  
+    <div>
+      <%= form.submit %>
+    </div>
+<% end %>
+
+<%= button_to 'Back', platforms_path, method: :get %>

@@ -1,0 +1,52 @@
+<%= form_with model: @book do |form| %>
+    <div>
+      <%= form.label :name %><br>
+      <%= form.text_field :name %>
+      <% @book.errors.full_messages_for(:name).each do |message| %>
+        <div><%= message %></div>
+      <% end %>
+    </div>
+  
+    <div>
+      <%= form.label :price %><br>
+      <%= form.number_field :price, step: 0.5 %>
+      <% @book.errors.full_messages_for(:price).each do |message| %>
+        <div><%= message %></div>
+      <% end %>
+    </div>
+
+    <div>
+      <%= form.label :category %><br>
+      <%= form.collection_select :category, Category.order(:name), :id, :name, prompt: true%>
+    </div>
+
+    <div>
+      <%= form.label :author %><br>
+      <%= form.text_field :author %>
+      <% @book.errors.full_messages_for(:author).each do |message| %>
+        <div><%= message %></div>
+      <% end %>
+    </div>
+
+    <div>
+      <%= form.label :editor %><br>
+      <%= form.text_field :editor %>
+      <% @book.errors.full_messages_for(:editor).each do |message| %>
+        <div><%= message %></div>
+      <% end %>
+    </div>
+
+    <div>
+      <%= form.label :description %><br>
+      <%= form.text_area :description %>
+      <% @book.errors.full_messages_for(:description).each do |message| %>
+        <div><%= message %></div>
+      <% end %>
+    </div>
+
+    <div>
+      <%= form.submit %>
+    </div>
+<% end %>
+
+<%= button_to 'Back', books_path, method: :get %>

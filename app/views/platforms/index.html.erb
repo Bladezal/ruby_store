@@ -1,0 +1,12 @@
+<h1>Platforms</h1>
+
+<ul>
+    <% @platforms.each do |platform| %>
+        <li>
+            <%= platform.name %> <%= button_to 'Modify', edit_platform_path(platform.id), method: :get %> <%= button_to 'Delete', platform_path(platform.id), method: :delete, data: { confirm: "Are you sure?" } %>
+        </li>
+    <% end %>
+</ul>
+
+<%= button_to 'Home', root_path, method: :get %>
+<%= button_to 'Create', new_platform_path, method: :get %>

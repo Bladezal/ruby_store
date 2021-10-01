@@ -1,0 +1,12 @@
+<h1>Categories</h1>
+
+<ul>
+    <% @categories.each do |category| %>
+        <li>
+            <%= category.name %> <%= button_to 'Modify', edit_category_path(category.id), method: :get %> <%= button_to 'Delete', category_path(category.id), method: :delete, data: { confirm: "Are you sure?" } %>
+        </li>
+    <% end %>
+</ul>
+
+<%= button_to 'Home', root_path, method: :get %>
+<%= button_to 'Create', new_category_path, method: :get %>
