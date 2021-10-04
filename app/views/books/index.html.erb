@@ -3,7 +3,7 @@
 <ul>
     <% @books.each do |book| %>
         <li>
-            <%= link_to book.name, book %> <%= button_to 'Delete', book_path(category.id), method: :delete, data: { confirm: "Are you sure?" } %>
+            <%= link_to book.name, book %> <%= button_to 'Delete', book_path(book.id), method: :delete, data: { confirm: "Are you sure?" } %>
         </li>
     <% end %>
 </ul>
